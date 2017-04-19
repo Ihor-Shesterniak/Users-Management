@@ -32,10 +32,10 @@ public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(Locale locale, Model model) {
-        logger.info("Welcome home! The client locale is {}.", locale);
-        locale = new Locale("ru", "RU");   // +
+        logger.debug("Welcome home! The client locale is {}.", locale);
+        locale = new Locale("ru", "RU");
         Date date = new Date();
-        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.DEFAULT, DateFormat.DEFAULT, locale);   // DEFAULT + LONG -
+        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.DEFAULT, DateFormat.DEFAULT, locale);
         String formattedDate = dateFormat.format(date);
         model.addAttribute("serverTime", formattedDate);
         return "home";
